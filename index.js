@@ -9,13 +9,12 @@ app.use(cors())
 
 app.post('/create-task', async function (req, res) {
 
-    const { title, description, date, done } = req.body;
+    const { title, description, completed } = req.body;
     try {
         await todoModel.create({
             title: title,
             description: description,
-            date: date,
-            done: done
+            completed: completed
         })
 
         res.json({
